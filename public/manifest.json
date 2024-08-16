@@ -1,0 +1,20 @@
+{
+	"short_name": "jobinja-comment",
+	"name": "jobinja",
+	"manifest_version": 3,
+	"version": "1.0",
+	"description": "jobinja",
+	"icons": {
+		"16": "icon16.png",
+		"48": "icon48.png",
+		"64": "icon64.png",
+		"128": "icon128.png"
+	},
+	"content_scripts": [
+		{
+			"matches": ["https://jobinja.ir/companies/*"],
+			"js": ["assets/index-DxuZ6_AG.js"],
+			"css": []
+		}
+	]
+}
