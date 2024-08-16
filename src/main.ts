@@ -46,7 +46,11 @@ function generateExperienceList(data: any) {
 					<li class="experience-item">
 							<h3 class='title'>${item.title}</h3>
 							<p class='date'>${item.date}</p>
-							<p class='content'>${item.body}</p>
+							  <p>${item.body
+									.split('\n')
+									.map((bodyItem: string) => `<div>${bodyItem}</div>`)
+									.join('')}
+									</p>
 					</li>
 			`;
 	});
