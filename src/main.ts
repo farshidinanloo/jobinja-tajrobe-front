@@ -55,8 +55,8 @@ let timeout = setInterval(() => {
 
 const getData = async (companyName: string) => {
 	const response = await fetch(
-		// `https://jobinja-tajrobe.liara.run/company?name=${companyName.trim()}`
-		`http://localhost:3000/company?name=${companyName.trim()}`
+		`https://jobinja-tajrobe.liara.run/company?name=${companyName.trim()}`
+		// `http://localhost:3000/company?name=${companyName.trim()}`
 	);
 	const json = await response.json();
 	return json;

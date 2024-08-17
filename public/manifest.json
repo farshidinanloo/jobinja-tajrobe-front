@@ -1,19 +1,18 @@
 {
 	"short_name": "jobinja-comment",
-	"name": "jobinja",
+	"name": "jobinja-comment",
 	"manifest_version": 3,
 	"version": "1.0",
-	"description": "jobinja",
+	"description": "jobinja comment",
 	"icons": {
 		"16": "icon16.png",
 		"48": "icon48.png",
-		"64": "icon64.png",
-		"128": "icon128.png"
+		"64": "icon64.png"
 	},
 	"content_scripts": [
 		{
 			"matches": ["https://jobinja.ir/companies/*"],
-			"js": ["assets/index-DxuZ6_AG.js"],
+			"js": ["assets/index-CNU_s_O8.js"],
 			"css": ["assets/index-D3Wf9QnR.css"]
 		}
 	]
