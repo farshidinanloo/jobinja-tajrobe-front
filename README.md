@@ -1,6 +1,6 @@
 ### Display user experiences of companies: 
 
-![example](./assets/default.PNG)
+![example](./public/example.png)
 
 ## how to install:
 
