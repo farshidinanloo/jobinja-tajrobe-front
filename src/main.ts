@@ -20,19 +20,43 @@ let timeout = setInterval(() => {
 	if (nameElement && jobView) {
 		const newEl = document.createElement('div');
 		const companyName = nameElement.innerText.split('|')[0];
-		getData(companyName).then((res) => {
-			console.log({ res });
-			newEl.classList.add('experience-container');
-			newEl.innerHTML = `<h2 class="experience-title">تجربه های کاری</h2>`;
-			newEl.innerHTML += generateExperienceList(res);
-			jobView.after(newEl);
-		});
+		newEl.classList.add('experience-container');
+		newEl.innerHTML = `<h2 class="experience-title">تجربه های کاری</h2>`;
+		newEl.innerHTML += `<div id="experience-list" class="experience-list experience-list--loading">...لطفا صبر کنید</div>`;
+		jobView.after(newEl);
+
+		getData(companyName)
+			.then((res) => {
+				console.log({ res });
+				const loadingElement = document.getElementById(
+					'experience-list'
+				) as HTMLDivElement;
+				loadingElement.remove();
+				if (res.length > 0) {
+					newEl.innerHTML += generateExperienceList(res);
+				} else {
+					newEl.innerHTML += `<div class="experience-list">موردی یافت نشد</div>`;
+				}
+				jobView.after(newEl);
+			})
+			.catch((err) => {
+				const loadingElement = document.getElementById(
+					'experience-list'
+				) as HTMLDivElement;
+				loadingElement.remove();
+				newEl.innerHTML += `<div class="experience-item">
+				<h3 class='title'>خطا</h3>
+				<p>${err.message}</p>
+			</div>`;
+				jobView.after(newEl);
+			});
 	}
 }, 1000);
 
 const getData = async (companyName: string) => {
 	const response = await fetch(
-		`https://jobinja-tajrobe.liara.run/company?name=${companyName.trim()}`
+		// `https://jobinja-tajrobe.liara.run/company?name=${companyName.trim()}`
+		`http://localhost:3000/company?name=${companyName.trim()}`
 	);
 	const json = await response.json();
 	return json;

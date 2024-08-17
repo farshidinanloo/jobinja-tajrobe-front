@@ -1,8 +1,17 @@
+.experience-container {
+	margin-bottom: 40px;
+}
+
 .experience-list {
 	background-color: white;
 	border: 1px solid #d0d0d0;
 	border-radius: 3px;
 	padding: 30px;
+}
+
+.experience-list--loading {
+	direction: ltr;
+	text-align: right;
 }
 
 .experience-list li {
